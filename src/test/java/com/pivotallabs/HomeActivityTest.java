@@ -23,6 +23,7 @@ import static org.robolectric.Robolectric.shadowOf;
 @RunWith(RobolectricTestRunner.class)
 public class HomeActivityTest {
     private HomeActivity activity;
+    private Button flagStatsButton;
     private Button pressMeButton;
     private Button trackerRecentActivityButton;
     private Button injectedActivityButton;
@@ -31,6 +32,7 @@ public class HomeActivityTest {
     @Before
     public void setUp() throws Exception {
         activity = Robolectric.buildActivity(HomeActivity.class).create().get();
+        flagStatsButton = (Button) activity.findViewById(R.id.flag_stats_button);
         pressMeButton = (Button) activity.findViewById(R.id.press_me_button);
         trackerRecentActivityButton = (Button) activity.findViewById(R.id.tracker_recent_activity);
         injectedActivityButton = (Button) activity.findViewById(R.id.injected_activity_button);
@@ -40,6 +42,11 @@ public class HomeActivityTest {
     @Test
     public void shouldHaveAButtonThatSaysPressMe() throws Exception {
         assertThat((String) pressMeButton.getText(), equalTo("Tests Rock!"));
+    }
+
+    @Test
+    public void shouldHaveFlagStatsButton() throws Exception {
+        assertThat((String) flagStatsButton.getText(), equalTo("Flag Stats"));
     }
 
     @Test
