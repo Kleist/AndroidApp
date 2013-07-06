@@ -34,8 +34,6 @@ public class HomeActivityTest {
         activity = Robolectric.buildActivity(HomeActivity.class).create().get();
         flagStatsButton = (Button) activity.findViewById(R.id.flag_stats_button);
         pressMeButton = (Button) activity.findViewById(R.id.press_me_button);
-        trackerRecentActivityButton = (Button) activity.findViewById(R.id.tracker_recent_activity);
-        injectedActivityButton = (Button) activity.findViewById(R.id.injected_activity_button);
         pivotalLogo = (ImageView) activity.findViewById(R.id.pivotal_logo);
     }
 
@@ -60,31 +58,9 @@ public class HomeActivityTest {
     }
 
     @Test
-    public void pressingTheButtonShouldStartTheSignInActivity() throws Exception {
-        trackerRecentActivityButton.performClick();
-
-        ShadowActivity shadowActivity = shadowOf(activity);
-        Intent startedIntent = shadowActivity.getNextStartedActivity();
-        ShadowIntent shadowIntent = shadowOf(startedIntent);
-
-        assertThat(shadowIntent.getComponent().getClassName(), equalTo(RecentActivityActivity.class.getName()));
-    }
-
-    @Test
     public void shouldHaveALogo() throws Exception {
         assertThat(pivotalLogo.getVisibility(), equalTo(View.VISIBLE));
         assertThat(shadowOf(pivotalLogo.getDrawable()).getLoadedFromResourceId(),
                 equalTo(R.drawable.pivotallabs_logo));
-    }
-
-    @Test
-    public void shouldLaunchInjectedActivity() throws Exception {
-        clickOn(injectedActivityButton);
-
-        ShadowActivity shadowActivity = shadowOf(activity);
-        Intent startedIntent = shadowActivity.getNextStartedActivity();
-        assertNotNull(startedIntent);
-        ShadowIntent shadowIntent = shadowOf(startedIntent);
-        assertThat(shadowIntent.getComponent().getClassName(), equalTo(InjectedActivity.class.getName()));
     }
 }

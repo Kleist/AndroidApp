@@ -21,20 +21,6 @@ public class HomeActivity extends Activity {
                 startActivity(NamesActivity.class);
             }
         });
-
-        findViewById(R.id.tracker_recent_activity).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(RecentActivityActivity.class);
-            }
-        });
-
-        findViewById(R.id.injected_activity_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(InjectedActivity.class);
-            }
-        });
     }
 
     private void startActivity(Class<? extends Activity> activityClass) {
