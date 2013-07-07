@@ -8,12 +8,4 @@
             android:text="@string/flag_stats"
             android:layout_marginBottom="10dip"
             />
-
-    <Button
-            android:id="@+id/press_me_button"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/tests_rock"
-            android:layout_marginBottom="10dip"
-            />
 </merge>
