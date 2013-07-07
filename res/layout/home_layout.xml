@@ -8,6 +8,12 @@
         android:padding="10dip"
         >
 
-    <include android:id="@+id/home_buttons" layout="@layout/home_buttons_merge" />
+    <Button
+            android:id="@+id/simple_button"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button"
+            android:layout_marginBottom="10dip"
+            />
 
 </LinearLayout>
