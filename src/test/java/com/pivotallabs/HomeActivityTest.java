@@ -13,16 +13,16 @@ import static org.junit.Assert.assertThat;
 @RunWith(RobolectricTestRunner.class)
 public class HomeActivityTest {
     private HomeActivity activity;
-    private Button flagStatsButton;
+    private Button simpleButton;
 
     @Before
     public void setUp() throws Exception {
         activity = Robolectric.buildActivity(HomeActivity.class).create().get();
-        flagStatsButton = (Button) activity.findViewById(R.id.flag_stats_button);
+        simpleButton = (Button) activity.findViewById(R.id.simple_button);
     }
 
     @Test
-    public void shouldHaveFlagStatsButton() throws Exception {
-        assertThat((String) flagStatsButton.getText(), equalTo("Flag Stats"));
+    public void shouldHaveButton() throws Exception {
+        assertThat((String) simpleButton.getText(), equalTo("Button"));
     }
 }
